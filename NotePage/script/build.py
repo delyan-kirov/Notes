@@ -4,15 +4,18 @@ import markdown
 import os
 
 # %%
-#Do something in this block. 
+# Parse Markdown file to HTML
 with open ("text.md", 'r') as f:
      mdata = f.read()
      f.close()
 # %%
-#Do something in this block. 
-def buildMD (mdata):
+# Add contence to new.html
+def buildMD (html):
+     html = "<!DOCTYPE html> \n <head> \n <title>\"Test\"</title> \n <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<html>\n<body>" + html + \
+     "\n</body>\n<html>"
+
      with open ("new.html", 'w') as f:
-        f.write(mdata)
+        f.write(html)
         f.close()
 
 # %%
