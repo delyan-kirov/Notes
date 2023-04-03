@@ -1,0 +1,78 @@
+/* <link rel="stylesheet" href="style.css"> */ 
+
+body {
+	background: #201F1F;
+}
+
+/* Changing values for mobile should be done in javascript.  */
+
+.button-container {
+  /* Add styles for the button container */
+  top: 10%;
+  left: 33%;
+  position: absolute;
+  display: center;
+  width: 35%;
+}
+
+.my-button:hover {
+  background-color: #8dd9ccA1; /* Green */
+  color: white;
+}
+
+.my-button {
+  /* Add styles for the button */
+  width: 95%;
+  cursor: pointer;
+  position: sticky;
+  background: #99999945;
+  color: #FFFFFFEE;
+  display: inline-block;
+  font-family: "Verdana", Sans-serif;
+	font-size: 20px;
+	/* border: 2px solid #00000000;
+}
+
+.button-part-1 {
+  /* Add styles for the first part of the button */
+  background: #99999945;
+	border: 2px solid #00000000;
+	padding: 0px 15px;
+	margin: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.name-field {
+  /* Add styles for the name field */
+  text-align: left;
+  background: #00000000;
+	border: 2px solid #00000000;
+	padding: 0px 15px;
+	margin: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.button-part-2 {
+  /* Add styles for the second part of the button */
+  text-align: left;
+  background: #00000000;
+	border: 2px solid #00000000;
+	padding: 0px 15px;
+	margin: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.snippet-field {
+  /* Add styles for the snippet field */
+  font-size: 12px;
+  color: #FFFFFFAA;
+  background: #00000000;
+	/* border: 2px solid #00000000;
+	padding: 0px 15px;
+	margin: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px; */
+}
