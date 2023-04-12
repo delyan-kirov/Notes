@@ -1,11 +1,3 @@
-/* <link rel="stylesheet" href="style.css"> */ 
-
-body {
-	background: #201F1F;
-}
-
-/* Changing values for mobile should be done in javascript.  */
-
 .my-button:hover {
   background-color: #8dd9ccA1; /* Green */
   color: white;
@@ -14,7 +6,6 @@ body {
 .my-button {
   /* Add styles for the button */
   width: 95%;
-  height: 33%;
   cursor: pointer;
   position: sticky;
   background: #99999945;

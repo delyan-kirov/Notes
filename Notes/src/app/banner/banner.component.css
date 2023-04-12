@@ -1,0 +1,11 @@
+.banner {
+    /* Add your CSS styles for the banner here */
+    position: absolute;
+    display: flex;
+    background: #99999945;
+    color: #FFFFFFEE;
+    padding: 5px;
+    width: 97%;
+    font-family: "Verdana", Sans-serif;
+      font-size: 20px;
+  }
