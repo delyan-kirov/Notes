@@ -7,6 +7,9 @@ import { ButtonContainerComponent } from './button-container/button-container.co
 import { NoteButtonComponent } from './note-button/note-button.component';
 import { BannerComponent } from './banner/banner.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,9 @@ import { BannerComponent } from './banner/banner.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,40 @@
 .banner {
     /* Add your CSS styles for the banner here */
-    position: absolute;
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+
+    justify-content: flex-start;
+    position: relative;
     display: flex;
     background: #99999945;
     color: #FFFFFFEE;
-    padding: 5px;
-    width: 97%;
+    /* padding: 2px; */
+    width: 100%;
     font-family: "Verdana", Sans-serif;
       font-size: 20px;
+
+    border: none;
+    outline: none;
+  }
+
+  button img {
+    /* Add your styles here */
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  button:hover {
+    background-color: #8dd9ccA1; /* Green */
+    border-radius: 20%;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    margin-top: 12%;
+    margin-left: 9px;
+    margin-right: 1px;
+    margin-bottom: 0%;
   }
