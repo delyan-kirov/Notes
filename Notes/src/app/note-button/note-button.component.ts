@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { NgClass, NgFor } from '@angular/common';
 
 @Component({
@@ -34,9 +34,13 @@ implements OnInit {
   }
 
   openNote(index: string){
-    console.log(this.data);
-    console.log("reveived flask message")
-    alert("The button is clicked! " + index)
+
+    const url = "http://127.0.0.1:5000/notes";
+    const body = {name : index}
+    console.log(body)
+    this.http.post(url,body).subscribe();
+
+    window.open(url, '_blank');
   }
 
 }
