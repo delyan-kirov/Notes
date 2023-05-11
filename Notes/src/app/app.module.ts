@@ -9,19 +9,24 @@ import { BannerComponent } from './banner/banner.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WriteNoteComponent } from './write-note/write-note.component';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonContainerComponent,
     NoteButtonComponent,
-    BannerComponent
+    BannerComponent,
+    WriteNoteComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

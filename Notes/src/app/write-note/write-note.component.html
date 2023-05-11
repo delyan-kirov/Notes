@@ -1,0 +1,6 @@
+<ng-container *ngIf="isComponentVisible">
+
+    <textarea #textInput class="write-note" [(ngModel)]="text" placeholder="Type here... " rows="1" (input)="adjustHight()" >
+    <!-- <p>You typed: {{ text }}</p> -->
+    <</textarea>
+</ng-container>

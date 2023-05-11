@@ -1,0 +1,24 @@
+.write-note {
+
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  top: 5%;
+
+  width: 95%;
+  cursor: text;
+  position: relative;
+  background: #99999945;
+  color: white;
+  display: inline-block;
+  font-family: "Verdana", Sans-serif;
+  font-size: 20px;
+  margin: 5px;
+  padding: 10px;
+  border: 0;
+  border-radius: 4px;
+
+}
+
+textarea:focus {
+  outline: none;
+}

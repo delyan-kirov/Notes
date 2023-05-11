@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from "../shared.service"
 
 @Component({
   selector: 'app-banner',
@@ -14,6 +15,17 @@ export class BannerComponent {
   
     register() {
       // Add your register logic here
+    }
+
+    constructor(private sharedService: SharedService) {}
+
+    isComponentVisible = false;
+
+    toggleComponent() {
+      console.log("Component is not visible? " + this.isComponentVisible);
+      this.isComponentVisible = !this.isComponentVisible;
+
+      this.sharedService.updateVisibility(this.isComponentVisible);
     }
   
     // Add other central command methods here

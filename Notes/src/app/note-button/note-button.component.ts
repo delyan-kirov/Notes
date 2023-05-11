@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { NgClass, NgFor } from '@angular/common';
+import { SharedService } from "../shared.service"
 
 @Component({
   selector: 'app-note-button',
@@ -18,6 +18,7 @@ import { NgClass, NgFor } from '@angular/common';
     </div>
   `
 })
+
 export class NoteButtonComponent
 implements OnInit {
   constructor(private http: HttpClient) { }
@@ -42,5 +43,4 @@ implements OnInit {
 
     window.open(url, '_blank');
   }
-
 }
