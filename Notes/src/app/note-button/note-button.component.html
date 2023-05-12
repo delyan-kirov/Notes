@@ -1,11 +1,20 @@
-<!-- 
-<button (click)="openNote()" class="my-button button2">
+
+  <div *ngFor="let item of data[1]; let i = index">
+    
+  <button (click)="openNote(item)" class="my-button button1">
+  <div class="left">
   <div class="button-part-1">
-    <div class="name-field">Something here</div>
+    <div class="name-field">{{item}}</div>
   </div>
   <div class="button-part-2">
-    <div class="snippet-field">This is a snippet of a text file. This text is intended to see how the file will look in the end.</div>
+    <div class="snippet-field">{{data[0][i]}}</div>
   </div>
-</button> -->
+</div>
+  <div (click)="deleteElement($event, item)" class="button-part-3">
+    <div class="delete-button">
+      <button class="delete">Delete</button>
+    </div>
+  </div>
 
-<app-note-button></app-note-button>
+</button>
+  </div>

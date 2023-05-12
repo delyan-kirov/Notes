@@ -28,13 +28,27 @@
   button:hover {
     background-color: #8dd9ccA1; /* Green */
     border-radius: 20%;
+    cursor: pointer;
   }
 
   button {
     background-color: transparent;
     border: none;
-    margin-top: 12%;
+    margin-top: auto;
     margin-left: 9px;
     margin-right: 1px;
-    margin-bottom: 0%;
+    margin-bottom: auto;
+  }
+
+  hr {
+    color: transparent;
+  }
+
+  .right{
+    margin-left: 0px;
+    margin-right: 9px;
+  }
+
+  .banner p{
+    margin-top: 0.5%;
   }

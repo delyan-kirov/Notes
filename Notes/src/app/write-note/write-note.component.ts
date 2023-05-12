@@ -24,5 +24,8 @@ export class WriteNoteComponent {
     const textArea = this.textInput.nativeElement;
     textArea.style.height = 'auto';
     textArea.style.height = textArea.scrollHeight + 'px';
+
+    this.sharedService.setText(this.text);
   }
+
 }

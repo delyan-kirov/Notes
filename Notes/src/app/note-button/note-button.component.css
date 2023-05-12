@@ -1,29 +1,29 @@
 .my-button:hover {
   background-color: #8dd9ccA1; /* Green */
   color: white;
+  transform: scale(1.05);
 }
 
 .my-button {
   /* Add styles for the button */
   width: 95%;
+
   cursor: pointer;
-  position: sticky;
   background: #99999945;
   color: #FFFFFFEE;
-  display: inline-block;
   font-family: "Verdana", Sans-serif;
 	font-size: 20px;
-	/* border: 2px solid #00000000;
-}
 
-.button-part-1 {
-  /* Add styles for the first part of the button */
-  background: #99999945;
 	border: 2px solid #00000000;
 	padding: 0px 15px;
 	margin: 5px;
+
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
+
+  display: flex;
+  justify-content: space-between;
+
 }
 
 .name-field {
@@ -44,18 +44,35 @@
 	border: 2px solid #00000000;
 	padding: 0px 15px;
 	margin: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 }
 
 .snippet-field {
-  /* Add styles for the snippet field */
+ 
   font-size: 12px;
   color: #FFFFFFAA;
   background: #00000000;
-	/* border: 2px solid #00000000;
-	padding: 0px 15px;
-	margin: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px; */
+}
+
+.button-part-3 {
+  margin-top: 3%;
+}
+
+.delete {
+  /* Add styles for the mini button */
+  background-color: #00000000; /* Red */
+  color: rgba(208, 199, 199, 0.787);
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 4px;
+
+}
+
+.delete:hover{
+  cursor: pointer;
+  background-color: #ff6666;
+  transform: scale(1.05);
 }
