@@ -15,7 +15,7 @@ implements OnInit {
   data : [string[], string[]] = [["1"], ["1"]];
 
   ngOnInit() {
-    const url = "http://127.0.0.1:5000/init";
+    const url = "http://192.168.0.15:5000/init";
     this.http.get<[string[], string[]]>(url).subscribe(data => {
       console.log(data);
       this.data = data;
@@ -24,7 +24,7 @@ implements OnInit {
 
   openNote(index: string){
 
-    const url = "http://127.0.0.1:5000/notes";
+    const url = "http://192.168.0.15:5000/notes";
     const body = {name : index}
     console.log(body)
     this.http.post(url,body, {responseType: "text"}).subscribe();
@@ -35,7 +35,7 @@ implements OnInit {
   deleteElement(event: Event, item:string) {
     event.stopPropagation();
     console.log(item)
-    const url = "http://127.0.0.1:5000/delete";
+    const url = "http://192.168.0.15:5000/delete";
     const params = new HttpParams().set('filename', item);
     const options = { params: params };
     this.http.delete(url, options).subscribe(() => {

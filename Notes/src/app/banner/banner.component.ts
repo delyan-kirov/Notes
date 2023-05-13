@@ -9,14 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class BannerComponent {
-  
-    login() {
-      // Add your login logic here
-    }
-  
-    register() {
-      // Add your register logic here
-    }
+
 
     constructor(private sharedService: SharedService, private http: HttpClient) {}
 
@@ -32,10 +25,9 @@ export class BannerComponent {
     sendText() {
       const text = this.sharedService.getText();
       console.log(text);
-      this.http.post('http://127.0.0.1:5000/text', { text }).subscribe(response => {
-        // handle the response here
+      this.http.post('http://192.168.0.15:5000/text', { text }).subscribe(response => {
       });
     }
   
-    // Add other central command methods here
+
 }

@@ -61,9 +61,9 @@ def showNote():
 def getText():
     data = request.get_json()
     print("Received message")
-    print(json.dumps(data))
+    print(json.dumps(data, indent=4))
     
-    data = json.dumps(data)
+    data = data['text']
     dataPath = "./data"
     name = data[:20]
     path = os.path.join(dataPath, name + ".txt")
