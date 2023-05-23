@@ -1,32 +1,28 @@
 <div class="banner">
 
     <p>
-       <button mat-icon-button class="icon" aria-label="Example icon-button with menu icon">
-        <img src="./assets/Folder.png">
-      </button>
-      <!-- <span>My App</span> -->
-      <span class="spacer"></span>
 
-      <button (click)="toggleComponent()" title="test1" icon-right class="icon" aria-label="Example icon-button with heart icon">
-        <img src="./assets/Mail.png">
+      <button (click)="toggleComponent()" title="edit" icon-right class="icon" aria-label="Example icon-button with heart icon">
+        <img src="./assets/edit.png">
       </button>
 
-      <button (click)="sendText()" title="test2" icon-right class="icon" aria-label="Example icon-button with share icon">
-        <img src="./assets/Trash.png">
+      <button *ngIf="isButtonVisible" (click)="sendText()" title="save" icon-right class="icon" aria-label="Example icon-button with share icon">
+        <img src="./assets/send.png">
      </button>
+
+     <button *ngIf="isButtonVisible" (click)="clearField()" title="clear" icon-right class="icon" aria-label="Example icon-button with share icon">
+      <img src="./assets/clear.png">
+   </button>
+  
     </p>
 
     <hr>
 
     <p>
-      <button mat-icon-button class="right" aria-label="Example icon-button with menu icon">
-        <img src="./assets/Folder.png">
+      <button mat-icon-button class="right" title="menu" aria-label="Example icon-button with menu icon">
+        <img src="./assets/menu.png">
       </button>
 
-      <button mat-icon-button class="right" aria-label="Example icon-button with menu icon">
-        <img src="./assets/Folder.png">
-      </button>
-      
     </p>
 
   </div>

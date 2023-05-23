@@ -19,15 +19,21 @@ export class SharedService {
 
   private text: string = "";
 
+  private _text = new BehaviorSubject<string>("");
+  public text$ = this._text.asObservable();
+
   setText(text: string) {
     console.log("setting text");
-    this.text = text;
-  }
-  
+    this._text.next(text);
+}
+
   getText() {
     console.log("getting text");
-    return this.text;
+    console.log(this.text);
+    return this.text$
   }
 
   constructor() { }
 }
+
+

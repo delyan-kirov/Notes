@@ -29,18 +29,28 @@
     background-color: #8dd9ccA1; /* Green */
     border-radius: 20%;
     cursor: pointer;
+    aspect-ratio: 1 / 1;
   }
 
   button {
     background-color: transparent;
-    border: none;
-    margin-top: auto;
+    border-radius: 20%;
+    border-style: hidden;
+    /* margin-top: auto;
     margin-left: 9px;
     margin-right: 1px;
-    margin-bottom: auto;
+    margin-bottom: auto; */
+    aspect-ratio: 1 / 1;
+  }
+
+  p {
+    margin-bottom: 0.3%;
+    margin-top: 0.2%;
+    margin-left: 4px;
   }
 
   hr {
+    border: none;
     color: transparent;
   }
 
@@ -50,5 +60,5 @@
   }
 
   .banner p{
-    margin-top: 0.5%;
+    margin-top: 0.2%;
   }

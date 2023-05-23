@@ -13,13 +13,6 @@ export class WriteNoteComponent {
   isComponentVisible = false;
   text = '';
 
-  constructor(private sharedService: SharedService) {
-    this.sharedService.isVisible$.subscribe(isVisible => {
-      this.isComponentVisible = isVisible;
-    });
-  }
-  @ViewChild('textInput') textInput!: ElementRef<HTMLTextAreaElement>;
-
   adjustHight(){
     const textArea = this.textInput.nativeElement;
     textArea.style.height = 'auto';
@@ -28,4 +21,13 @@ export class WriteNoteComponent {
     this.sharedService.setText(this.text);
   }
 
+  constructor(private sharedService: SharedService) {
+    this.sharedService.isVisible$.subscribe(isVisible => {
+      this.isComponentVisible = isVisible;
+    });
+    this.sharedService.text$.subscribe(text => {
+      this.text = text;
+    });
+  }
+  @ViewChild('textInput') textInput!: ElementRef<HTMLTextAreaElement>;
 }
