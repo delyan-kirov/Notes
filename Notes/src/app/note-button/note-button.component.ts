@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { SharedService } from "../shared.service"
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-note-button',
@@ -10,16 +11,20 @@ import { SharedService } from "../shared.service"
 
 export class NoteButtonComponent
 implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   data : [string[], string[]] = [["1"], ["1"]];
 
   ngOnInit() {
-    // const url = "http://192.168.0.15:5000/init";
-    const url = "http://localhost:5000/init"
-    this.http.get<[string[], string[]]>(url).subscribe(data => {
-      console.log(data);
-      this.data = data;
+    this.route.queryParams.subscribe(params => {
+      const username = params['username'];
+      if (username) {
+        const url = `http://localhost:5000/init?username=${username}`;
+        this.http.get<[string[], string[]]>(url).subscribe(data => {
+          console.log(data);
+          this.data = data;
+        });
+      }
     });
   }
 
@@ -45,16 +50,25 @@ implements OnInit {
       });
   }
   
-  deleteElement(event: Event, item:string) {
+deleteElement(event: Event, item: string) {
     event.stopPropagation();
-    console.log(item)
-    // const url = "http://192.168.0.15:5000/delete";
-    const url = "http://localhost:5000/delete"
-    const params = new HttpParams().set('filename', item);
-    const options = { params: params };
-    this.http.delete(url, options).subscribe(() => {
-      console.log("refresh");
-      this.ngOnInit();
-    });
-  }
+    console.log(item);
+    
+    this.route.queryParams.subscribe(params => {
+
+
+      const username = params['username'];
+      console.log("The username is: " + username)
+      
+      const url = `http://localhost:5000/delete?username=${username}`;
+      const paramFile = new HttpParams().set('filename', item);
+      const options = { params : paramFile };
+
+      this.http.delete(url, options).subscribe(() => {
+        console.log("refresh");
+        this.ngOnInit();
+      });
+    })
+
+}
 }

@@ -11,15 +11,11 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 
 
-
 #%%
 app = Flask(__name__)
 app.debug = True
 CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 bcrypt = Bcrypt(app)
-
-
-
 
 
 #%% DB LOGIC
@@ -94,7 +90,7 @@ def login():
         if user:
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
-                return redirect(url_for('dashboard'))
+                return redirect(f'http://localhost:4200/?username={user.username}')
     return render_template('login.html', form=form)
 
 
@@ -110,30 +106,35 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@ app.route('/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
-
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data)
         new_user = User(username=form.username.data, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
-        return redirect(url_for('login'))
 
+        # create a new directory for the user
+        newUser = form.username.data
+        os.makedirs(f"./data/{newUser}", exist_ok=True)
+
+        return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
 
     """
         Routes
+        //////////////////////////////////////////////////////////////////////////////
     """
 
-
 #%% Root route
-@app.route("/")
 
+@app.route("/")
 def shareData():
-    dataPath = "./data"
+    username = request.args.get("username")
+    dataPath = f"./data/{username}"
+    print("datapath is: " +  dataPath)
     output = []
     showData = ""
     for files in os.listdir(dataPath):
@@ -155,7 +156,10 @@ def shareData():
 @app.route("/init")
 
 def giveFileData():
-    dataPath = "./data"
+    username = request.args.get("username")
+    dataPath = f"./data/{username}"
+    print("datapath is: " +  dataPath)
+    
     output = []
     names = []
     
@@ -170,7 +174,7 @@ def giveFileData():
     print("inside /init")
     return(jsonify(output,names))
 
-#%%
+#%% Notes route
 @app.route("/notes", methods=["POST", "GET"])
 def showNote():
     if request.method == "GET":
@@ -193,7 +197,10 @@ def getText():
     print(json.dumps(data, indent=4))
     
     data = data['text']
-    dataPath = "./data"
+    username = request.args.get("username")
+    dataPath = f"./data/{username}"
+    print(request.args)
+    
     name = (data[:20].split()[0])
     path = os.path.join(dataPath, name)
     
@@ -214,7 +221,9 @@ def deleteFile():
     filename = request.args.get("filename")
     print(filename)
     
-    file_path = "./data/" + filename
-    os.remove(file_path)
+    username = request.args.get("username")
+    dataPath = f"./data/{username}/" + filename
+    
+    os.remove(dataPath)
     return jsonify({'status': 'success'})
     
